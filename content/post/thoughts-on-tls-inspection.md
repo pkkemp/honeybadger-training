@@ -1,14 +1,34 @@
 +++
-author = "Hugo Authors"
+author = "Preston Kemp"
 title = "Thoughts on TLS Inspection"
 date = "2019-11-20"
 description = ""
 tags = ["emoji"]
-image = "artist.jpg"
+image = "windmills.jpg"
 +++
 
-Forward proxy TLS inspection is harmful
 <!--more-->
+
+Something I've noticed in my professional life is the propensity on the part of technical people to try and solve imaginary problems.
+
+I think that TLS inspection is one of those imaginary problems.
+
+If you ask people what they hope to accomplish using TLS inspection they'll say things like:
+
+1. Protecting Intellectual Property (DLP)
+2. Protecting other Organizational Secrets (DLP)
+3. Stopping malicious requests
+
+These are valid goals, but it's unclear how TLS inspection accomplishes any of them.
+
+Some broad questions about the efficacy of this approach that immediately come to mind are:
+
+1. How does this not turn into something that just has hundreds (if not thousands) of false positives every single day? Is someone going to review them? Do you really have the manpower to do this sort of things? And even if you did, unless a flagged request was blocked how much good is knowing about it after the fact?
+2. What are the privacy and security implications of doing this? Do your users know you're doing it? Do they understand you have access to their plaintext credit card numbers, passwords, security questions, etc?
+3. If one of your goals is to stop malformed or otherwise malicious requests, wouldn't your time be better spent patching vulnerable systems rather than putting another system that also needs to be patched in front of said vulnerable system?
+4. TLS inspection only works on networks that you can control. How will you stop data exfiltration from users that work remotely?
+
+Some more specific areas of concern:
 
 ## 1. TLSi Violates the Principle of Least Privilege
 
@@ -16,61 +36,54 @@ The white paper (if you can call it that) I reference above makes note that Insi
 
 The white paper goes on to state that enterprises that choose to implement this technology should ensure that they are following the principle of "least privilege"
 
-The problem with this suggestion is that it is neither useful nor honest. How can an enterprise ever hope to implement the principle of least privilege while purposefully injecting massive amounts of it in an unnecessary way? How can you prevent user data from being compromised in transit while breaking the very thing that is meant to provide that protection (TLS).
-
-The `[emojify](https://gohugo.io/functions/emojify/)` function can be called directly in templates or [Inline Shortcodes](https://gohugo.io/templates/shortcode-templates/#inline-shortcodes).
-
-To enable emoji globally, set `enableEmoji` to `true` in your site’s [configuration](https://gohugo.io/getting-started/configuration/) and then you can type emoji shorthand codes directly in content files; e.g.
-
-<p><span class="nowrap"><span class="emojify">🙈</span> <code>:see_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙉</span> <code>:hear_no_evil:</code></span>  <span class="nowrap"><span class="emojify">🙊</span> <code>:speak_no_evil:</code></span></p>
-<br>
-
-The [Emoji cheat sheet](http://www.emoji-cheat-sheet.com/) is a useful reference for emoji shorthand codes.
+The problem with this suggestion is that it is neither useful nor honest. How can an organization ever hope to implement the principle of least privilege while purposefully injecting massive amounts of it in an unnecessary way? How can you prevent user data from being compromised in transit while breaking the thing that is meant to provide that protection (TLS).
 
 ***
-
 
 ## 2. TLSi complicates your attack surface
 
 As an exercise for the security-conscious, consider the following:
 
 1. What happens to data after its *only* protection is broken?
-  1. Is it routed in plain-text through racks of equipment for further inspection? Who has access to those racks? What prevents someone from simply duplicating this traffic using something like an optical duplicator?
+  1. Is it routed in plain-text through racks of equipment for further inspection? Who has access to those racks? What prevents someone from altering a route inside this construct to siphon off interesting data?
   2. What do those inspection devices do with user data?
-2. Do you know what SSL/TLS library your TLSi device uses? Are you sure it doesn't contain
-
-
+2. Do you know what SSL/TLS library your TLSi device uses? Is it open-source? Reputable? Up-to-date?
 
 ## 3. What are you *even* doing with it?
 
-One of the things that no one seems to be able to answer when I ask is what exactly they hope to accomplish by breaking and inspecting TLS.
-
-People often say things like:
-
-- Protecting Intellectual Property
-- Stopping malicious requests
-
-These are valid goals, but no one seems to be able to explain the efficacy of this approach. Could these goals not be achieved in some other way that doesn't involve
-
+As discussed previously, TLS inspection has a valid set of goals, but there's never a conversation about the efficacy of this approach. Did deep packet inspection work well even when the majority of traffic was sent in the clear? If not, perhaps a different approach would more meaningfully address these concerns.
 
 ## 4. TLSi only works on networks that you control
 
 Why can't a user just download whatever data they need, go to Starbucks and upload it?
 
+## 5. Privacy Implications
 
-## 5. Do your users understand the risk they're at?
+Someone will argue that users don't have an reasonable expectation of privacy on a corporate network, but that's a bad faith argument. It's incredibly deceptive (maybe even *evil*) to pretend that users should understand that to mean that their employer could have access to any personal information they enter on a website.
 
-Do your users understand that you have access to their plain-text passwords, security questions, etc for things like their banking sites?
+Do your users understand the security and privacy implications of what you're doing?
 
-**N.B.** The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.
+Do your users understand that you have access to their plain-text passwords, credit card numbers, security questions, etc? (a simple regex could be used to steal credit card numbers, social security numbers, etc.)
 
+Even if your users have no "reasonable expectation of privacy" on your network, are your users aware of the implications of what you're doing so they can make an informed decision (informed consent)?
+
+How would you feel if someone was in a position to steal all of your personal information, read your emails, etc?
+
+Someone who operates one of these devices (or is capable of performing a plain-text capture) of data has a tremendous amount of power, how can you be confident that would result in user data abuse?
+
+## 6. Poor User Experience
+
+When behind an inspection device connection failures are almost never communicated to the end user. The connection is simply reset by the inspection device and the user is left wondering why.
 
 ## 7. All Software has bugs
 
-Another thing people never seem to think about is the fact that all software has bugs (vulnerabilities). Contrary to popular belief adding external software to a problem that stems from poor or insecure code is *unlikely* to make it better. In fact, it almost guarantees that you will introduce additional vulnerabilities or attack paths that you're probably not thinking about.
+Security software is not immune to bugs simply by virtue of being security software. All security software has bugs.
 
+This has been written about extensively, so I won't belabor the point here, but security software by its very nature often breaks things in order to achieve a security objective. In software such as anti-virus, this is achieved by process injection or by other methods of privilege injection.
 
-Below is a bug from iOS 7 (famously referred to as #gotofail), the bug in question was part of the SSL library for iOS devices. The bug (line 12)
+Do you know what cryptographic library your TLS inspection device uses? When was it last updated?
+
+Below is a bug from iOS 7 (famously referred to as #gotofail), the bug in question was part of the SSL library for iOS devices. The bug (line 12) illustrates the point that even well written security software has bugs.
 
 ### sslKeyExchange.c
 
@@ -110,36 +123,4 @@ fail:
 
 }
 
-```
-
-### Swift
-
-```swift
-class Person {
-  var residence: Residence?
-}
-
-class Residence {
-  var rooms = [Room]()
-  var numberOfRooms: Int {
-    return rooms.count
-  }
-
-
-  subscript(i: Int) -> Room {
-    get {
-      return rooms[i]
-    }
-    set {
-      rooms[i] = newValue
-    }
-  }
-
-  func printNumberOfRooms() {
-    print("The number of rooms is \(numberOfRooms)")
-  }
-
-  var address: Address?
-
-}
 ```

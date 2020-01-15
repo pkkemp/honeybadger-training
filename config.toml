@@ -1,8 +1,8 @@
 baseurl = "https://example.com/"  # Include trailing slash
 title = "Newsroom"
 theme = "newsroom"
-author = "Weru"
-copyright = "Copyright © 2019, Weru and the Hugo Authors; all rights reserved."
+author = "Preston"
+copyright = "Copyright © 2019, Preston Kemp; all rights reserved."
 canonifyurls = true
 paginate = 3
 # Enable syntax highlighting
@@ -18,7 +18,6 @@ pygmentsOptions = "linenos=table"
 # ids used below are not valid. Replace with valid ones
 [params]
   # ga_analytics = "" # google analytics ID e.g UA-116386578-1
-  
+
   # ga_verify = "" # google verification code e.g 5jb-rxeBfITeJQKOuUss3ud6FPGTxXkCho-ZN5qlrZg
   # twitter = "" # twitter handle e.g @weru
-
