@@ -1,6 +1,6 @@
 baseurl = "https://example.com/"  # Include trailing slash
 title = "Newsroom"
-theme = "newsroom"
+theme = "hugo-theme-novela"
 author = "Preston"
 copyright = "Copyright © 2019, Preston Kemp; all rights reserved."
 canonifyurls = true
