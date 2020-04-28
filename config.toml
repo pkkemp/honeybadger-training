@@ -1,23 +1,53 @@
 baseurl = "https://master.d74fv95wgwmos.amplifyapp.com/"  # Include trailing slash
-title = "Newsroom"
-theme = "hugo-theme-novela"
-author = "Preston"
-copyright = "Copyright © 2019, Preston Kemp; all rights reserved."
-canonifyurls = true
-paginate = 3
-# Enable syntax highlighting
-# comment or delete the following lines 11 ~ 14
-pygmentsCodefences = true
-pygmentsCodefencesGuessSyntax = true
-pygmentsUseClasses=true
-pygmentsOptions = "linenos=table"
+languageCode = "en-us"
+theme = "hello-friend"
+paginate = 5
 
-# If you want to use disqus, uncomment the line below
-# disqusShortname = "yourdiscussshortname"
-
-# ids used below are not valid. Replace with valid ones
 [params]
-  # ga_analytics = "" # google analytics ID e.g UA-116386578-1
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
 
-  # ga_verify = "" # google verification code e.g 5jb-rxeBfITeJQKOuUss3ud6FPGTxXkCho-ZN5qlrZg
-  # twitter = "" # twitter handle e.g @weru
+  # "light" or "dark"
+  defaultTheme = "dark"
+
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+
+  # Show reading time in minutes for posts
+  showReadingTime = false
+
+[languages]
+  [languages.en]
+    title = "Hello Friend"
+    subtitle = "A simple theme for Hugo"
+    keywords = ""
+    copyright = ""
+    menuMore = "Show more"
+    writtenBy = "Written by"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    newerPosts = "Newer posts"
+    olderPosts = "Older posts"
+    minuteReadingTime = "min read"
+    dateFormatSingle = "2006-01-02"
+    dateFormatList = "2006-01-02"
+    # leave empty to disable, enter display text to enable
+    # lastModDisplay = ""
+
+    [languages.en.params.logo]
+      logoText = "hello friend"
+      logoHomeLink = "/"
+    # or
+    #
+    # path = "/img/your-example-logo.svg"
+    # alt = "Your example logo alt text"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "showcase"
+        name = "Showcase"
+        url = "/showcase"
