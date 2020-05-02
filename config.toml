@@ -1,53 +1,74 @@
-baseurl = "https://master.d74fv95wgwmos.amplifyapp.com/"  # Include trailing slash
-languageCode = "en-us"
-theme = "hello-friend"
-paginate = 5
+baseURL = "https://example.com"
+title = "thoughts on..."
+copyright = "Copyright © 2008–2019, Steve Francia and the Hugo Authors; all rights reserved."
+paginate = 2
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+googleAnalytics = "UA-XXXX"
+DisqusShortname = ""
+theme = "hugo-theme-chunky-poster"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 0
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+author = "authors"
 
 [params]
-  # dir name of your blog content (default is `content/posts`)
-  contentTypeName = "posts"
+  author = "Hugo Authors"
+  share = true
+  showLanguageSwitcher = false
 
-  # "light" or "dark"
-  defaultTheme = "dark"
+  # Custom CSS and JS. Relative to /static/css and /static/js respectively.
+  customCSS = []
+  customJS = []
 
-  # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 2
+  [params.social]
+    rss = true
+    #email = "example@example.com"
+    #facebook = "https://facebook.com"
+    twitter = "https://twitter.com"
+    #linkedin = "https://linkedin.com"
+    #stack-overflow = "https://stackoverflow.com"
+    #instagram = "https://stackoverflow.com"
+    github = "https://github.com"
+    #weibo = "https://www.weibo.com"
+    #medium = "https://medium.com"
+    #pinterest = "https://pinterest.com"
+    #reddit = "https://reddit.com"
+    gitlab = "https://gitlab.com"
+    #mastodon = "https://mastodon.social"
+    keybase = "https://keybase.io/"
 
-  # Show reading time in minutes for posts
-  showReadingTime = false
+  [params.prismJS]
+    enable = true
+    theme = ""
 
-[languages]
-  [languages.en]
-    title = "thoughts on"
-    subtitle = "A simple theme for Hugo"
-    keywords = ""
-    copyright = ""
-    menuMore = "Show more"
-    writtenBy = "Written by"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
-    newerPosts = "Newer posts"
-    olderPosts = "Older posts"
-    minuteReadingTime = "min read"
-    dateFormatSingle = "2006-01-02"
-    dateFormatList = "2006-01-02"
-    # leave empty to disable, enter display text to enable
-    # lastModDisplay = ""
+  [params.commento]
+    enable = true
+    url = "https://commento.io"
 
-    [languages.en.params.logo]
-      logoText = "hello friend"
-      logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+[markup]
+  [markup.highlight]
+    codeFences = false
 
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "about"
-        name = "About"
-        url = "/about"
-      [[languages.en.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/showcase"
+[services]
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true

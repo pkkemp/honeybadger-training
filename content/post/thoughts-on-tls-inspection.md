@@ -23,7 +23,7 @@ These are valid goals, but it's unclear how TLS inspection accomplishes any of t
 
 Some broad questions about the efficacy of this approach that immediately come to mind are:
 
-1. How does this not turn into something that just has hundreds (if not thousands) of false positives every single day? Is someone going to review them? Do you really have the manpower to do this sort of things? And even if you did, unless a flagged request was blocked how much good is knowing about it after the fact?
+1. How does this not turn into something that just has hundreds (if not thousands) of false positives every single day? Is someone going to review them? Do you really have the manpower to do this sort of thing? And even if you did, unless a flagged request was blocked how much good is knowing about it after the fact?
 2. What are the privacy and security implications of doing this? Do your users know you're doing it? Do they understand you have access to their plaintext credit card numbers, passwords, security questions, etc?
 3. If one of your goals is to stop malformed or otherwise malicious requests, wouldn't your time be better spent patching vulnerable systems rather than putting another system that also needs to be patched in front of said vulnerable system?
 4. TLS inspection only works on networks that you can control. How will you stop data exfiltration from users that work remotely?
@@ -79,7 +79,7 @@ When behind an inspection device connection failures are almost never communicat
 
 Security software is not immune to bugs simply by virtue of being security software. All security software has bugs.
 
-This has been written about extensively, so I won't belabor the point here, but security software by its very nature often breaks things in order to achieve a security objective. In software such as anti-virus, this is achieved by process injection or by other methods of privilege injection.
+This has been written about extensively, so I won't belabor the point here, but security software very often injects privleges into software as a means to achieve its objective. things in order to achieve some security objective. In the In software such as anti-virus, this is achieved by process injection or by other methods of privilege injection.
 
 Do you know what cryptographic library your TLS inspection device uses? When was it last updated?
 
