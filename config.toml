@@ -1,5 +1,6 @@
 baseURL = "https://prestonkemp.com"
-title = "Preston Kemp"
+title = "thoughts on..."
+description = "tech and other stuff"
 
 theme = "blank"
 hasCJKLanguage = true

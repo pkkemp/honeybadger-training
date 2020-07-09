@@ -4,7 +4,7 @@ title = "Thoughts on TLS Inspection"
 date = "2019-11-20"
 description = ""
 tags = ["emoji"]
-image = "windmills.jpg"
+image = "https://static.prestonkemp.com/photos/wengang-zhai-EXoSQp83PrM-unsplash.jpg"
 +++
 
 <!--more-->
