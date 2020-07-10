@@ -8,6 +8,9 @@ enableEmoji = true
 enableRobotsTXT = true
 disableKinds = ["taxonomyTerm"]
 
+pygmentsCodefences = true
+pygmentsStyle = "pygments"
+
 ## Change this two to switch between different language
 languageCode = "en"  # For RSS, view https://www.rssboard.org/rss-language-codes
 defaultContentLanguage = "en"  # For HTML page, now support: en, zh-hans, zh-hant, ja, nl

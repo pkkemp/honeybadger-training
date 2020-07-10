@@ -2,9 +2,9 @@
 author = "Preston Kemp"
 title = "Thoughts on TLS Inspection"
 date = "2019-11-20"
-description = ""
-tags = ["emoji"]
-image = "https://static.prestonkemp.com/photos/wengang-zhai-EXoSQp83PrM-unsplash.jpg"
+description = "Some quick thoughts on the use of TLS inspection devices in enterprise networks"
+tags = ["infosec"]
+image = "https://static.prestonkemp.com/photos/forest-simon-WbhLL-nivYM-unsplash.jpg"
 +++
 
 <!--more-->
@@ -123,4 +123,18 @@ fail:
 
 }
 
+```
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+  </body>
+</html>
 ```
