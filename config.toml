@@ -29,6 +29,8 @@ paginate = 10
 [params]
   author = "Preston Kemp" # You can also set author in post front matter individually
   subTitle = "thoughs on"
+  headerImageURL = "https://static.prestonkemp.com/photos/gerson-repreza-WpQBXuqyVlo-unsplash.jpg"
+
 
   # Use CloudFlare Workers to accelerate the Google Analytics
   # If you are using this please comment the googleAnalytics above
