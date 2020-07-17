@@ -1,6 +1,6 @@
 +++
 author = "Preston Kemp"
-title = "Thoughts on TLS Inspection"
+title = "Security Engineering and the Pandemic"
 date = "2019-11-20"
 description = "Some quick thoughts on the use of TLS inspection devices in enterprise networks"
 tags = ["infosec"]
@@ -8,8 +8,6 @@ image = "https://static.prestonkemp.com/photos/forest-simon-WbhLL-nivYM-unsplash
 +++
 
 <!--more-->
-
-{{< video VideoURL="https://cdn.honeybadgers.tech/video/View_From_A_Blue_Moon_Trailer-1080p.mp4" >}}
 
 Something I've noticed in my professional life is the propensity on the part of technical people to try and solve imaginary problems.
 

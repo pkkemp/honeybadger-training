@@ -29,8 +29,8 @@ paginate = 10
 [params]
   author = "Preston Kemp" # You can also set author in post front matter individually
   subTitle = "thoughs on"
-  headerImageURL = "https://static.prestonkemp.com/photos/gerson-repreza-WpQBXuqyVlo-unsplash.jpg"
-
+  headerImageURL = "https://static.prestonkemp.com/photos/dustin-humes-OUi93Rto_bw-unsplash.jpg"
+  cdnURL = "https://cdn.honeybadgers.tech/"
 
   # Use CloudFlare Workers to accelerate the Google Analytics
   # If you are using this please comment the googleAnalytics above
@@ -125,13 +125,9 @@ paginate = 10
 
   [[menu.link]]
     name = "GitHub"
-    url = "https://github.com/amzrk2"
+    url = "https://github.com/pkkemp"
     weight = 1
   [[menu.link]]
     name = "Twitter"
-    url = "https://twitter.com/amzrk2"
+    url = "https://twitter.com/preston_kemp"
     weight = 2
-  [[menu.link]]
-    name = "bilibili"
-    url = "https://space.bilibili.com/19767474"
-    weight = 3
