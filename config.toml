@@ -1,5 +1,5 @@
-baseURL = "https://prestonkemp.com"
-title = "thoughts on..."
+baseURL = "https://video.honeybadgers.tech"
+title = "Honeybadger Training"
 description = "tech and other stuff"
 
 theme = "blank"
@@ -29,7 +29,7 @@ paginate = 10
 [params]
   author = "Preston Kemp" # You can also set author in post front matter individually
   subTitle = "thoughs on"
-  headerImageURL = "https://static.prestonkemp.com/photos/dustin-humes-OUi93Rto_bw-unsplash.jpg"
+  headerImageURL = "https://cdn.honeybadgers.tech/video/Honeybadger-Dark.jpg"
   cdnURL = "https://cdn.honeybadgers.tech/"
 
   # Use CloudFlare Workers to accelerate the Google Analytics
