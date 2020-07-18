@@ -97,9 +97,10 @@ paginate = 10
   [markup.tableOfContents]
     startLevel = 2
     endLevel = 3
-
-[taxonomies]
-  tag = "tags"
+  
+  [taxonomies]
+    tag = "tags"
+    category = "categories"
 
 [menu]
   [[menu.nav]]
